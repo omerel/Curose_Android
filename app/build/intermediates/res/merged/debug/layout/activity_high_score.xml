@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@drawable/background"
+    tools:context="com.example.omer.myfirstapp.High_score">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="35sp"
+        android:paddingBottom="30dp"
+        android:paddingTop="30dp"
+        android:text="@string/score_list" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:paddingTop="50dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/level_1"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/level_2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:text="@string/level_3"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:paddingTop="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/name_01"
+            android:text="@string/empty"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/name_02"
+            android:text="@string/empty2"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/name_03"
+            android:text="@string/empty3"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginBottom="100dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/score_01"
+            android:text="-"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/score_02"
+            android:text="-"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:id="@+id/score_03"
+            android:text="-"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center" />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_Back_To_Menu"
+        android:layout_gravity="center"
+        android:text="@string/back_to_menu"
+        android:onClick="goToMenu"/>
+</LinearLayout>
