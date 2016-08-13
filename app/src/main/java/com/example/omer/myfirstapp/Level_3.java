@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.omer.myfirstapp.R;
 
@@ -22,10 +23,17 @@ public class Level_3 extends AppCompatActivity {
     private static Intent goToScore;
     private int sum_found = 0;
     private boolean revealed = false;
+    private final int total_imgs = 6;
     private int cardId_revealed = 0;
     private int[] board= new int[num_of_cards*2];
-    private int[] array_used_cards= new int[num_of_cards];
+    int imgs_Id[] = new int[total_imgs];
     private String name;
+
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,40 +52,46 @@ public class Level_3 extends AppCompatActivity {
 
         // Arrange cards
         initial_game();
+        Toast.makeText(Level_3.this, "Start Play ", Toast.LENGTH_SHORT).show();
     }
-    private int random_card(){
+    private int random(int num){
         Random rand = new Random();
-        return rand.nextInt(num_of_cards);
+        return rand.nextInt(num);
     }
 
-    private int invertPlace2ImgId(int temp_card){
-        int imgId = 0;
-        switch (temp_card){
-            case 0:{imgId = R.drawable.card1;break;}
-            case 1:{imgId = R.drawable.card2;break;}
-            case 2:{imgId = R.drawable.card3;break;}
-            case 3:{imgId = R.drawable.card4;break;}
-            case 4:{imgId = R.drawable.card5;break;}
-            case 5:{imgId = R.drawable.card6;break;}
-        }
-        return imgId;
+    private  void initial_imgs_and_board(){
+        imgs_Id[0]=R.drawable.card1;
+        imgs_Id[1]=R.drawable.card2;
+        imgs_Id[2]=R.drawable.card3;
+        imgs_Id[3]=R.drawable.card4;
+        imgs_Id[4]=R.drawable.card5;
+        imgs_Id[5]=R.drawable.card6;
+
+        for(int i=0;i<num_of_cards*2;i++)
+            board[i]=0;
     }
     private void initial_game() {
-
+        int temp_img;
         int temp_card;
-        // Initial array uesd cards
-        for (int i = 0; i < num_of_cards; i++  )
-            array_used_cards[i]=-2;
+        int count_cards = 0 ;
+        // initial array of cards imgs id
+        initial_imgs_and_board();
 
-        // initial the board game wit images
-        for (int j = 0; j < num_of_cards*2; j++){
-            while (true){
-                temp_card = random_card();
-                if (array_used_cards[temp_card] < 0) {
-                    board[j] = invertPlace2ImgId(temp_card);
-                    array_used_cards[temp_card]++;
-                    break;
-                }
+        // initial the board game with images
+        while (count_cards<num_of_cards*2){
+            temp_img = random(total_imgs);
+            if (imgs_Id[temp_img] != 0) {
+                // fill 2 cards
+                for (int i=0;i<2;i++)
+                    while (true){
+                        temp_card=random(num_of_cards*2);
+                        if (board[temp_card] == 0){
+                            board[temp_card] = imgs_Id[temp_img];
+                            count_cards++;
+                            break;
+                        }
+                    }
+                imgs_Id[temp_img] = 0;
             }
         }
     }

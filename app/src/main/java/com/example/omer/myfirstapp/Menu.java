@@ -18,6 +18,11 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
+    }
+
     public void validate(View view) {
         ToggleButton btn1 = (ToggleButton)findViewById(R.id.toggleButton_level1);
         ToggleButton btn2 = (ToggleButton)findViewById(R.id.toggleButton_level2);

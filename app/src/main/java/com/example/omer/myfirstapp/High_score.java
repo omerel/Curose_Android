@@ -30,6 +30,11 @@ public  class High_score extends AppCompatActivity {
             updateScore();
     }
 
+    @Override
+    public void onBackPressed() {
+        // do nothing
+    }
+
     public void updateScore(){
 
         newName = getIntent().getStringExtra("USER_NAME");
